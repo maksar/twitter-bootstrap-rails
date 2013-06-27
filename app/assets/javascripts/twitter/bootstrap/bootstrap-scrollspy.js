@@ -152,11 +152,16 @@
  /* SCROLLSPY DATA-API
   * ================== */
 
-  $(window).on('load', function () {
-    $('[data-spy="scroll"]').each(function () {
-      var $spy = $(this)
-      $spy.scrollspy($spy.data())
+  function initScrollSpy() {
+    $(window).on('load', function () {
+      $('[data-spy="scroll"]').each(function () {
+        var $spy = $(this)
+        $spy.scrollspy($spy.data())
+      })
     })
-  })
+  }
+
+  $(window).on('load', initScrollSpy);
+  $(document).on('page:load', initScrollSpy);
 
 }(window.jQuery);

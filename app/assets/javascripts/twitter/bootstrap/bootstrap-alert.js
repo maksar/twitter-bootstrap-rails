@@ -93,7 +93,12 @@
 
  /* ALERT DATA-API
   * ============== */
+  
+  function bootstrapInitAlert() {
+    $(document).on('click.alert.data-api', dismiss, Alert.prototype.close)
+  }
 
-  $(document).on('click.alert.data-api', dismiss, Alert.prototype.close)
+  $(bootstrapInitAlert);
+  $(document).on('page:load', bootstrapInitAlert);
 
 }(window.jQuery);

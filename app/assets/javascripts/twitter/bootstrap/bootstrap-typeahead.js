@@ -326,10 +326,15 @@
  /* TYPEAHEAD DATA-API
   * ================== */
 
-  $(document).on('focus.typeahead.data-api', '[data-provide="typeahead"]', function (e) {
-    var $this = $(this)
-    if ($this.data('typeahead')) return
-    $this.typeahead($this.data())
-  })
+  function bootstrapInitTypeAhead() {
+    $(document).on('focus.typeahead.data-api', '[data-provide="typeahead"]', function (e) {
+      var $this = $(this)
+      if ($this.data('typeahead')) return
+      $this.typeahead($this.data())
+    })
+  }
+
+  $(bootstrapInitTypeAhead)
+  $(document).on('page:load', bootstrapInitTypeAhead);
 
 }(window.jQuery);

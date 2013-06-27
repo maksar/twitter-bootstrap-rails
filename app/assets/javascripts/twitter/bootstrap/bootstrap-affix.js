@@ -99,7 +99,7 @@
  /* AFFIX DATA-API
   * ============== */
 
-  $(window).on('load', function () {
+  function bootstrapInitAffix() {
     $('[data-spy="affix"]').each(function () {
       var $spy = $(this)
         , data = $spy.data()
@@ -111,7 +111,9 @@
 
       $spy.affix(data)
     })
-  })
+  }
 
+  $(window).on('load', bootstrapInitAffix);
+  $(document).on('page:load', bootstrapInitAffix);
 
 }(window.jQuery);
